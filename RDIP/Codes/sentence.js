@@ -128,12 +128,73 @@ arr[j] = temp;
 }
 return arr.join(' ');              
 }
+var word_cnt=0;
+var sentence="";
+function sec(clicked){
+  document.getElementById('c').innerHTML ="";
+  document.getElementById('d').innerHTML ="";
+  document.getElementById('d').style.display ="none";
+  document.getElementById('c').style.display ="none";
+  document.getElementById('reform').style.display = '';
+  document.getElementById('b').style.display = '';
+  document.getElementById('i').style.display = '';
+
+document.getElementById('b').innerHTML="Formed Sentence";
+document.getElementById('i').innerHTML=" (after selecting words):"; 
+document.getElementById('reform').innerHTML="";
+document.getElementById('ref').innerHTML="";
+
+var element = document.createElement("input");
+element.setAttribute("type", 'button');
+element.setAttribute("value", "Re-form the sentence");
+element.setAttribute("id", "reformbtn");
+var foo = document.getElementById("reform");
+foo.appendChild(element);
+document.getElementById('reformbtn').setAttribute( "onClick", "javascript: reform_sentence()" );
+
+var clickid=clicked+'b'
+sentence+=document.getElementById(clickid).value;
+
+document.getElementById('h2id').innerHTML+=document.getElementById(clickid).value;
+document.getElementById(clickid).style.display = 'none';
+word_cnt++;
 
 
+}
+var hin_sentence="";
+var hin2=0;
+function hin(clicked){
+  document.getElementById('d').innerHTML ="";
+  document.getElementById('c').innerHTML ="";
+  document.getElementById('c').style.display ="none";
+  document.getElementById('d').style.display ="none"; 
+  document.getElementById('ref').style.display = '';
+  document.getElementById('b').style.display = '';
+  document.getElementById('i').style.display = '';
 
-function get_answers(){
-  ans="";
-  document.getElementById("answers").innerHTML="";
-  var n=0;
-  
+document.getElementById('b').innerHTML="Formed Sentence";
+document.getElementById('i').innerHTML=" (after selecting words):"; 
+document.getElementById('reform').innerHTML="";
+document.getElementById('ref').innerHTML="";
+var element = document.createElement("input");
+element.setAttribute("type", 'button');
+element.setAttribute("value", "Re-form the sentence");
+element.setAttribute("id", "reformbtnhin");
+var foo = document.getElementById("ref");
+foo.appendChild(element);
+document.getElementById('reformbtnhin').setAttribute( "onClick", "javascript: reform_hin_sentence()" );
+ var clickid=clicked+'x'
+hin_sentence+=document.getElementById(clickid).value;
+
+document.getElementById('h2h').innerHTML+=document.getElementById(clickid).value;
+
+document.getElementById(clickid).style.display = 'none';
+hin2++;
+}
+function hide_sentence() {
+
+document.getElementById("answers").innerHTML="";
+
+ document.getElementById("get_correct").innerHTML="<button id='correct_sentence' onclick='get_answers()'>Get Answers</button>"
+
 }
