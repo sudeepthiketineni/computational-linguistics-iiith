@@ -261,6 +261,47 @@ word_cnt=0;
 sentence="";
 }
 }
+function check_correctness() {
+  document.getElementById("right").innerHTML="";
+  var txt=sentence.trim();
+  var q=array1[x].length;
+  var m=0;
+  for(var i=0;i<q;i++){
+    str=array1[x][i];
+  
+    var m=str.localeCompare(txt);
+    if(m==0){
+      document.getElementById("right").style.display='';
+      document.getElementById("right").innerHTML="<p style='color:green'>Right answer!!!</p>";
+      return ;
+    }
+    
+ }
+ document.getElementById("right").style.display='';
+  document.getElementById("right").innerHTML="<p style='color:red'>Wrong answer!!!</p>";
+  document.getElementById("get_correct").innerHTML="<button id='correct_sentence' onclick='get_answers()'>get correct sentence</button>"
+ document.getElementById("answers").innerHTML="";
+}
+function hin_correctness(){
+  document.getElementById("right").innerHTML="";
+  var txt=hin_sentence.trim(); 
+  var q=array2[y].length;
+  var m=0;
+  for(var i=0;i<q;i++){
+    str=array2[y][i];  
+    var m=str.localeCompare(txt);
+    if(m==0){
+     document.getElementById("right").style.display='';
+      document.getElementById("right").innerHTML="<p style='color:green'>Right answer!!!</p>";
+      return ;
+    } 
+ }
+ document.getElementById("right").style.display='';
+  document.getElementById("right").innerHTML="<p style='color:red'>Wrong answer!!!</p>";
+ 
+document.getElementById("get_correct").innerHTML="<button id='correct_sentence' onclick='get_answers()'>Get Correct Sentence</button>"
+document.getElementById("answers").innerHTML="";
+}
 
 function hide_sentence() {
 
