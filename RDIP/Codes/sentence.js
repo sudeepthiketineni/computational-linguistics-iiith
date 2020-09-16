@@ -1,3 +1,6 @@
+var button_cnt;
+var hin_btn;
+var x,y;
 var array1;
 var array2;
 var strUser
@@ -6,6 +9,25 @@ var e = document.getElementById("ar");
 strUser = e.options[e.selectedIndex].text;
 document.getElementById("r").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words";
 document.getElementById("s").innerHTML="(select the buttons in proper order)";
+document.getElementById('reform').innerHTML="";  
+document.getElementById('ref').innerHTML="";
+document.getElementById('b').innerHTML="";
+document.getElementById('i').innerHTML="";
+document.getElementById('c').innerHTML ="";
+  document.getElementById('d').innerHTML =""; 
+  document.getElementById("right").innerHTML="";
+  document.getElementById('get_correct').innerHTML="";
+  document.getElementById('answers').innerHTML="";
+  hin2=0;
+  word_cnt=0;
+  sentence="";
+  hin_sentence="";
+for(var i=0;i<=9;i++){
+var k=i+'';
+var k2=i+'h';
+document.getElementById(k).innerHTML="";
+document.getElementById(k2).innerHTML="";
+}
 if(strUser=="---select a language---"){
   alert("select language");
 }
@@ -20,6 +42,36 @@ if(strUser=="English"){
 ["John ate an apple so did she","she ate an apple so did John"],
 ["the teacher returned the book after she noticed the error","the teacher noticed the error after she returned the book","after the teacher returned the book she noticed the error","after the teacher noticed the error she returned the book","she returned the book after the teacher noticed the error","she noticed the error after the teacher returned the book","after she returned the book the teacher noticed the error","after she noticed the error the teacher returned the book"],
 ["I told her that I bought a book yesterday","I told her yesterday that I bought a book","yesterday I told her that I bought a book","I bought a book that I told her yesterday","I bought a book yesterday that I told her","yesterday I bought a book that I told her"]];
+
+document.getElementById("h2h").innerHTML="";
+document.getElementById('reform').style.display = '';
+document.getElementById('reform').innerHTML="";
+for(var i=0;i<=9;i++){
+var p=i+'h';
+var p2=i+'';
+document.getElementById(p).style.display = 'none';
+document.getElementById(p2).style.display = '';
+
+}
+x = Math.floor(Math.random() * 10);
+var res=shuffle(array1[x][0]);
+
+var words = res.split(" ");
+var l=words.length;
+for (var i = 0; i <l; i++) {
+words[i] += " ";
+}
+
+for( var i=0;i<l;i++){
+var butid=i+'b'
+var element = document.createElement("input");
+element.setAttribute("type", 'button');
+element.setAttribute("value", words[i]);  
+element.setAttribute('id',butid)
+var foo = document.getElementById(i+'');
+foo.appendChild(element);
+}  
+button_cnt=l;
 }
 else if(strUser=="Hindi"){
   array2=[["राम और श्याम बाजार गयें","राम और श्याम गयें बाजार","बाजार गयें राम और श्याम","गयें बाजार राम और श्याम"],
@@ -29,8 +81,56 @@ else if(strUser=="Hindi"){
 ["बिल्लियों को मारकर कुत्ता सो गया","मारकर बिल्लियों को कुत्ता सो गया","बिल्लियों को मारकर सो गया कुत्ता","मारकर बिल्लियों को सो गया कुत्ता","कुत्ता सो गया बिल्लियों को मारकर","कुत्ता सो गया मारकर बिल्लियों को","सो गया कुत्ता बिल्लियों को मारकर","सो गया कुत्ता मारकर बिल्लियों को"],
 ["एक लाल किताब वहाँ है","एक लाल किताब है वहाँ","वहाँ है एक लाल किताब","है वहाँ एक लाल किताब"],
 ["एक बड़ी सी किताब वहाँ है","एक बड़ी सी किताब है वहाँ","बड़ी सी एक किताब वहाँ है","बड़ी सी एक किताब है वहाँ","वहाँ है एक बड़ी सी किताब","वहाँ है बड़ी सी एक किताब","है वहाँ एक बड़ी सी किताब","है वहाँ बड़ी सी एक किताब"]];
+
+document.getElementById("h2id").innerHTML="";
+ document.getElementById('ref').style.display = '';
+ document.getElementById("ref").innerHTML="";
+for( var i=0;i<=9;i++){
+  var r=i+'';
+  var r2=i+'h';
+  document.getElementById(r).style.display = 'none';
+  document.getElementById(r2).style.display = '';
+}
+ y = Math.floor(Math.random() * 7);
+
+var res=shuffle(array2[y][0]);
+var words = res.split(" ");
+var l1=words.length;
+for (var i = 0; i <l1; i++) {
+words[i] += " ";
+}
+
+for( var i=0;i<l1;i++){
+  // alert(y);
+var butid=i+'hx'
+var element = document.createElement("input");
+element.setAttribute("type", 'button');
+element.setAttribute("value", words[i]);  
+element.setAttribute('id',butid)
+var foo = document.getElementById(i+'h');
+foo.appendChild(element);
+}
+hin_btn=l1
+
 }
 }
+function getRandomInt(n) {
+return Math.floor(Math.random() * n);
+}
+function shuffle(s) {
+var arr = s.split(' ');          
+var n = arr.length;              
+for(var i=0 ; i<n-1 ; ++i) {
+var j = getRandomInt(n);      
+var temp = arr[i];            
+arr[i] = arr[j];
+arr[j] = temp;
+}
+return arr.join(' ');              
+}
+
+
+
 function get_answers(){
   ans="";
   document.getElementById("answers").innerHTML="";
