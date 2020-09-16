@@ -158,8 +158,6 @@ sentence+=document.getElementById(clickid).value;
 document.getElementById('h2id').innerHTML+=document.getElementById(clickid).value;
 document.getElementById(clickid).style.display = 'none';
 word_cnt++;
-
-
 }
 var hin_sentence="";
 var hin2=0;
@@ -183,13 +181,63 @@ element.setAttribute("id", "reformbtnhin");
 var foo = document.getElementById("ref");
 foo.appendChild(element);
 document.getElementById('reformbtnhin').setAttribute( "onClick", "javascript: reform_hin_sentence()" );
- var clickid=clicked+'x'
+ 
+
+
+var clickid=clicked+'x'
 hin_sentence+=document.getElementById(clickid).value;
 
 document.getElementById('h2h').innerHTML+=document.getElementById(clickid).value;
 
 document.getElementById(clickid).style.display = 'none';
 hin2++;
+
+
+}
+
+function reform_hin_sentence()
+{
+document.getElementById('h2h').innerHTML=''
+for(var i=0;i<=9;i++){
+var clickid=i+"hx"
+document.getElementById('b').innerHTML="Formed Sentence";
+document.getElementById('i').innerHTML=" (after selecting words):";
+document.getElementById(i+'h').style.display = '';  
+document.getElementById(clickid).style.display = '';
+document.getElementById('i').style.display = "none";
+document.getElementById('b').style.display = "none";
+document.getElementById('ref').style.display = "none";
+document.getElementById('d').style.display="none";
+document.getElementById('c').style.display="none";
+document.getElementById('right').style.display="none";
+document.getElementById('get_correct').innerHTML="";
+document.getElementById("answers").innerHTML="";
+
+hin2=0;
+hin_sentence="";
+}
+
+}
+function reform_sentence()
+{
+document.getElementById('h2id').innerHTML=''
+for(var i=0;i<=9;i++){
+var clickid=i+"b"
+document.getElementById('b').innerHTML="Formed Sentence";
+document.getElementById('i').innerHTML=" (after selecting words):";
+document.getElementById(i+'').style.display = '';  
+document.getElementById(clickid).style.display = '';
+document.getElementById('i').style.display = "none";
+document.getElementById('b').style.display = "none";
+document.getElementById('reform').style.display = "none";
+document.getElementById('c').style.display="none";
+document.getElementById('d').style.display="none";
+document.getElementById('right').style.display="none";
+document.getElementById('get_correct').innerHTML="";
+document.getElementById("answers").innerHTML="";
+word_cnt=0;
+sentence="";
+}
 }
 function hide_sentence() {
 
