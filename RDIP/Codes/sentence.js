@@ -302,7 +302,28 @@ function hin_correctness(){
 document.getElementById("get_correct").innerHTML="<button id='correct_sentence' onclick='get_answers()'>Get Correct Sentence</button>"
 document.getElementById("answers").innerHTML="";
 }
-
+function get_answers(){
+  ans="";
+  document.getElementById("answers").innerHTML="";
+  var n=0;
+  if(strUser=="English"){
+    n=array1[x].length;
+   
+    document.getElementById("get_correct").innerHTML="<button id='correct_sentence' onclick='hide_sentence()'>Hide the correct Sentence</button><br>"
+    for(i=0;i<n;i++){
+      ans+= array1[x][i]+"<br>";
+    }
+    document.getElementById("answers").innerHTML = ans;
+  }
+  if(strUser=='Hindi'){
+    n=array2[y].length;
+        document.getElementById("get_correct").innerHTML="<button id='correct_sentence' onclick='hide_sentence()'>Hide the correct Sentence</button><br>"
+     for(i=0;i<n;i++){
+      ans+= array2[y][i]+"<br>";
+    }
+    document.getElementById("answers").innerHTML = ans;
+  }
+}
 function hide_sentence() {
 
 document.getElementById("answers").innerHTML="";
