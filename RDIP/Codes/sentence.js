@@ -158,6 +158,19 @@ sentence+=document.getElementById(clickid).value;
 document.getElementById('h2id').innerHTML+=document.getElementById(clickid).value;
 document.getElementById(clickid).style.display = 'none';
 word_cnt++;
+
+if(word_cnt==button_cnt){
+
+  document.getElementById('c').style.display='';
+
+ var element = document.createElement("input");
+element.setAttribute("type", 'button');
+element.setAttribute("value", "Check the correctness of this sentence");
+element.setAttribute("id", "correct");
+var foo = document.getElementById("c");
+foo.appendChild(element);
+word_cnt=0;
+}
 }
 var hin_sentence="";
 var hin2=0;
@@ -192,7 +205,16 @@ document.getElementById('h2h').innerHTML+=document.getElementById(clickid).value
 document.getElementById(clickid).style.display = 'none';
 hin2++;
 
-
+if(hin2==hin_btn){
+  document.getElementById('d').style.display ='';
+ var element = document.createElement("input");
+element.setAttribute("type", 'button');
+element.setAttribute("value", "Check the correctness of this sentence");
+element.setAttribute("id", "correct_hin");
+var foo = document.getElementById("d");
+foo.appendChild(element);
+hin2=0;
+}
 }
 
 function reform_hin_sentence()
@@ -239,6 +261,7 @@ word_cnt=0;
 sentence="";
 }
 }
+
 function hide_sentence() {
 
 document.getElementById("answers").innerHTML="";
