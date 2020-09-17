@@ -7,7 +7,7 @@ var strUser
 function array() {
 var e = document.getElementById("ar");
 strUser = e.options[e.selectedIndex].text;
-document.getElementById("r").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given words";
+document.getElementById("r").innerHTML="Form a sentence (Declarative or Interrogative or any other type) from the given word";
 document.getElementById("s").innerHTML="(select the buttons in proper order)";
 document.getElementById('reform').innerHTML="";  
 document.getElementById('ref').innerHTML="";
